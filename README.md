@@ -40,8 +40,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-groupName|text|null: false|
-menber|text||
+groupName|string|null: false|
+menber|string||
 ### Association
 - has_many :users
 
