@@ -61,7 +61,7 @@ menber|text||
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|image||
+|image|image||
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
