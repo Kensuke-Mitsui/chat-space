@@ -4,29 +4,37 @@
       .sideBar__user-name__top-items__name 
         = current_user.name
       .sideBar__user-name__top-items__icons  
-        = link_to "#", class: "sideBar__user-name__top-items__icons__btn1" do
+        = link_to new_group_path(), class: "sideBar__user-name__top-items__icons__btn1" do
           = icon('fa', 'edit')
         = link_to edit_user_path(current_user), class: "sideBar__user-name__top-items__icons__btn2" do
           = icon('fa', 'cog') 
 
   .sideBar__group
-    .sideBar__group__lists 
-      = link_to "#" do
-        .sideBar__group__lists__name  techcamp
-        .sideBar__group__lists__message まだメッセージがありません
-    .sideBar__group__lists 
-      = link_to "#" do
-        .sideBar__group__lists__name  techcamp
-        .sideBar__group__lists__message まだメッセージがありません
-    .sideBar__group__lists 
-      = link_to "#" do
-        .sideBar__group__lists__name  techcamp
-        .sideBar__group__lists__message まだメッセージがありません
-    .sideBar__group__lists 
-      = link_to "#" do
-        .sideBar__group__lists__name  techcamp
-        .sideBar__group__lists__message まだメッセージがありません
-    .sideBar__group__lists 
-      = link_to "#" do
-        .sideBar__group__lists__name  techcamp
-        .sideBar__group__lists__message まだメッセージがありません
+    - current_user.groups.each do | group |
+      .sideBar__group__lists
+        = link_to "#", {class: "sideBar__group__lists__name"} do
+          = group.name
+        .sideBar__group__lists__message
+          まだメッセージがありません
+
+ 
+    -# .sideBar__group__lists 
+    -#   = link_to "#" do
+    -#     .sideBar__group__lists__name  techcamp
+    -#     .sideBar__group__lists__message まだメッセージがありません
+    -# .sideBar__group__lists 
+    -#   = link_to "#" do
+    -#     .sideBar__group__lists__name  techcamp
+    -#     .sideBar__group__lists__message まだメッセージがありません
+    -# .sideBar__group__lists 
+    -#   = link_to "#" do
+    -#     .sideBar__group__lists__name  techcamp
+    -#     .sideBar__group__lists__message まだメッセージがありません
+    -# .sideBar__group__lists 
+    -#   = link_to "#" do
+    -#     .sideBar__group__lists__name  techcamp
+    -#     .sideBar__group__lists__message まだメッセージがありません
+    -# .sideBar__group__lists 
+    -#   = link_to "#" do
+    -#     .sideBar__group__lists__name  techcamp
+    -#     .sideBar__group__lists__message まだメッセージがありません
