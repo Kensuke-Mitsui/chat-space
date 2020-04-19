@@ -2,53 +2,68 @@
   .mainChat__header
     .mainChat__header__left
       .mainChat__header__left__name
-        Test
+        = @group.name
       .mainChat__header__left__message
-        Member:masa
-    = link_to "#", class: "mainChat__header__right-btn" do
+        %p Member:
+        .mainChat__header__left__message__user-list
+          - @group.group_users.each do |group_user|
+            = group_user.user.name
+          
+          
+    = link_to edit_group_path(@group.id), class: "mainChat__header__right-btn" do
       Edit
 
       
 
   .mainChat__content
-    .mainChat__content__message
-      .mainChat__content__message__id
-        .mainChat__content__message__id__name
-          aa
-        .mainChat__content__message__id__date
-          2019/11111
-      .mainChat__content__message__messages
-        おはよう！
+    = render partial: 'message', collection: @messages
+    -#   .mainChat__content__message__id
+    -#     .mainChat__content__message__id__name
+    -#       aa
+    -#     .mainChat__content__message__id__date
+    -#       2019/11111
+    -#   .mainChat__content__message__messages
+    -#     おはよう！
 
-    .mainChat__content__message
-      .mainChat__content__message__id
-        .mainChat__content__message__id__name
-          aa
-        .mainChat__content__message__id__date
-          2019/11111
-      .mainChat__content__message__messages
-        おはよう！
+    -# .mainChat__content__message
+    -#   .mainChat__content__message__id
+    -#     .mainChat__content__message__id__name
+    -#       aa
+    -#     .mainChat__content__message__id__date
+    -#       2019/11111
+    -#   .mainChat__content__message__messages
+    -#     おはよう！
 
-    .mainChat__content__message
-      .mainChat__content__message__id
-        .mainChat__content__message__id__name
-          aa
-        .mainChat__content__message__id__date
-          2019/11111
-      .mainChat__content__message__messages
-        おはよう！
+    -# .mainChat__content__message
+    -#   .mainChat__content__message__id
+    -#     .mainChat__content__message__id__name
+    -#       aa
+    -#     .mainChat__content__message__id__date
+    -#       2019/11111
+    -#   .mainChat__content__message__messages
+    -#     おはよう！
+
 
   .mainChat__footer
     .mainChat__footer__foom
       .mainChat__footer__foom__left
-        %input.mainChat__footer__foom__left__text{:placeholder => "type a message", }
-        %label{class:"mainChat__footer__foom__left__image"}
-          = icon('fas', 'image', class: "mainChat__footer__foom__left__image__images")
-          %input{type: "file", class: "mainChat__footer__foom__left__image__btn"}
-      = link_to "#", class: "mainChat__footer__foom__right" do
-        Send
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: "mainChat__footer__foom__left__text", placeholder: "type a message" 
+          = f.label :image, class: "mainChat__footer__foom__left__image" do
+            = icon('fas', 'image', class: "mainChat__footer__foom__left__image__images")
+            = f.file_field :image, class: "mainChat__footer__foom__left__image__btn"
+          = f.submit 'Send', class: 'mainChat__footer__foom__right'
+          
+  -# .mainChat__footer
+    -# .mainChat__footer__foom
+    -#   .mainChat__footer__foom__left
+    -#     %input.mainChat__footer__foom__left__text{:placeholder => "type a message", }
+    -#     %label{class:"mainChat__footer__foom__left__image"}
+    -#       = icon('fas', 'image', class: "mainChat__footer__foom__left__image__images")
+    -#       %input{type: "file", class: "mainChat__footer__foom__left__image__btn"}
+    -#   = link_to "#", class: "mainChat__footer__foom__right" do
+    -#     Send
 
 
-
-
+ 
     

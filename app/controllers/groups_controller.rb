@@ -25,8 +25,8 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     if @group.update(group_params)
-      redirect_to root_path, notice: 'グループを更新しました'
-    else
+      redirect_to group_messages_path(@group.id), notice: 'グループを更新しました' #(@group.id)なのは定義されたデータでないと読み込んでくれないため。
+    else                                                                        #(group.id)だと定義されていないためエラーが出る
       render :edit
     end
   end

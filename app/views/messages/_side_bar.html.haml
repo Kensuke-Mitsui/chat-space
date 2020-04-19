@@ -12,10 +12,10 @@
   .sideBar__group
     - current_user.groups.each do | group |
       .sideBar__group__lists
-        = link_to "#", {class: "sideBar__group__lists__name"} do
+        = link_to group_messages_path(group.id), {class: "sideBar__group__lists__name"} do
           = group.name
         .sideBar__group__lists__message
-          まだメッセージがありません
+          = group.show_last_message
 
  
     -# .sideBar__group__lists 

@@ -1,0 +1,19 @@
+.mainChat__content__message
+  .mainChat__content__message__id
+    .mainChat__content__message__id__name
+      -# = @group.name
+    .mainChat__content__message__id__date
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .mainChat__content__message__messages
+    - if message.content.present?
+      %p.mainChat__content__message__messages__1
+        = message.content
+    = image_tag message.image.url, class: 'mainChat__content__message__messages__image' if message.image.present?
+
+  -#   .mainChat__content__message__id
+  -#     .mainChat__content__message__id__name
+  -#       aa
+  -#     .mainChat__content__message__id__date
+  -#       2019/11111
+  -#   .mainChat__content__message__messages
+  -#     おはよう！
