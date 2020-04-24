@@ -242,5 +242,3 @@ DEPENDENCIES
   unicorn (= 5.4.1)
   web-console (>= 3.3.0)
 
-BUNDLED WITH
-   2.1.4
